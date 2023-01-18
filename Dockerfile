@@ -1,0 +1,23 @@
+FROM python:3.10
+
+ARG REDDIT_USERNAME
+ARG REDDIT_PASSWORD
+ARG REDDIT_CLIENT_ID
+ARG REDDIT_CLIENT_SECRET
+
+ENV REDDIT_USERNAME=${REDDIT_USERNAME}
+ENV REDDIT_PASSWORD=${REDDIT_PASSWORD}
+ENV REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+ENV REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+
+WORKDIR ./app
+
+RUN pip install pipenv 
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt && python -m pip install --upgrade pip 
+
+COPY . .
+
+CMD ["python", "-m", "app"]

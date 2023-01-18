@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Reddit Topic Modelling</title>
+</head>
+<body style="background-color:#F2FAFB;">
+    <img align="right" src="static/reddit-logo-youtube-png-favpng-Rukc5hsDFfci1sNk1LkFBccvW.jpeg" alt="reddit-logo" style="width:90px;height:75px;">
+
+    <div class="container">
+
+        <h1 align="center">Reddit Topic Modelling Tool</h1>
+        <form method='POST'>
+            <div class="form-group">
+                <label for="subreddit">Subreddit</label>
+                <input type="text" class="form-control" id="subreddit" name="subreddit" placeholder="Enter subreddit">
+            </div>
+            <div class="form-group">
+                <label for="amount">Select the number of subreddits (max 1000):</label>
+                <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter amount of subreddits"/>
+              </div>
+            <br />
+            <div class="form-group">
+                <label for="type">Select the order:</label>
+                <select required id="type" name="type">
+                    <option value="" disabled selected hidden></option>
+                    <option value="new">new</option>
+                    <option value="hot">hot</option>
+                    <option value="top">top</option>
+                    <option value="rising">rising</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>       
+      <script 
+        type="'text/javascript" 
+        src="{{ url_for('static', filename='index.js') }}">
+    </script>
+</body>
+</html>
